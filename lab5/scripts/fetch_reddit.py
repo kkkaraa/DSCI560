@@ -61,7 +61,7 @@ def fetch_reddit_posts(subreddit_name, num_posts):
     subreddit = reddit.subreddit(subreddit_name)
     posts_fetched = 0
     after = None  # for paging
-    batch_size = 200
+    batch_size = 1000
 
     while posts_fetched < num_posts:
         remaining = num_posts - posts_fetched
@@ -117,6 +117,6 @@ def fetch_comments(post_id, post):
     db.commit()
 
 
-fetch_reddit_posts("tech", 200)
+fetch_reddit_posts("tech", 5000)
 cursor.close()
 db.close()
